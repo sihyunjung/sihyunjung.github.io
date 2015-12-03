@@ -6,6 +6,12 @@ categories: javascript, AngularJS
 ---
 ## 1. 들어가기에 앞서...<br>
  
+> 출처<br>
+http://d2.naver.com/helloworld/1172239
+http://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day
+
+<br>
+본내용은 개인적으로 제일 궁금하다싶은것들만 일단 추가함.
 Backbonejs 위주로 다루(유지보수)었던 나로서 사실 AngularJS는(jQuery에서 쓰던 DOM 조작방식도좀 다르고.) 적응이좀 안되고 있다. 뭔가 진도도 안나가는거 같고... 구조도 어떻게 잡아야할거같고..;; 감이 좀 안오고있다. <br>
 그래서 이제부터라도 방법을 바꿔 공부한 내용을 정리하고자 하는 차원에서 지킬의 힘을 빌려보고자한다.(쓸데없는 잡솔.-_-)<br>
 사실 Backbonejs든 AngularJS든지간에 프레임워크라는건 개발시간을 단축시키기위한 도구일뿐 필수적인 요소 이상이라고는 생각하지는 않는다. <br>
