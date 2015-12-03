@@ -7,7 +7,7 @@ categories: javascript, AngularJS
 ## 1. 들어가기에 앞서...<br>
  
 > 출처<br>
-http://d2.naver.com/helloworld/1172239
+http://d2.naver.com/helloworld/1172239 <br>
 http://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day
 
 <br>
