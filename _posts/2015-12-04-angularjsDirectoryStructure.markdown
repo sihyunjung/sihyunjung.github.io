@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AngularJS 폴더 구조 모범 사례"
+title:  "AngularJS 폴더 구조 모범 사례(문서 작성 약 50%)"
 date:   2015-12-03
 categories: javascript, AngularJS
 ---
@@ -128,8 +128,20 @@ A good practice here would be to create a Core subfolder under components, and t
 In the structure above we didn’t do this, but another good practice for very large apps is to separate the routes into separate files. For example you might add a blogRoutes.js file in the /views/blog/ subfolder and there include only the routes relevant to the blog such as /blog/:slug, /blog/:slug/edit, blog/tags:/tags, etc.In the structure above we didn’t do this, but another good practice for very large apps is to separate the routes into separate files. For example you might add a blogRoutes.js file in the /views/blog/ subfolder and there include only the routes relevant to the blog such as /blog/:slug, /blog/:slug/edit, blog/tags:/tags, etc.
 
 #압축
+If you do decide to opt in and build your AngularJS apps in a modularized fashion, be sure to concatenate and minify your code before going into production. There are many great extensions for both Grunt and Gulp that will help with this – so don’t be afraid to split code up as much as you need.
+
+You may not want to necessarily have just one giant .js file for your entire app, but concatenating your app into a few logical files like:
+
+* app.js (for app initialization, config and routing)
+* services.js (for all the services)
+
+This will be greatly beneficial for reducing initial load times of your app.
+
+If you need some more tips on minifying, check out our guide: Declaring AngularJS Modules For Minification
 
 #일관성 네이밍
+이부분에 팁을 더한다면 추후 구성요소를 작성하거나, 추가적인 파일들이 추가가 될때 일관성있는 네이밍을 사용하여 두통에서 벗어날 수 있습니다.
+ex : blogViewhtml, blogServices.js, blogContainer.js
 
 ##모듈화 접근 방식 장점
 
