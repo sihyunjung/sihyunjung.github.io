@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AngularJS 폴더 구조 모범 사례(문서 작성 약 50%)"
+title:  "AngularJS 폴더 구조 모범 사례"
 date:   2015-12-03
 categories: javascript, AngularJS
 ---
@@ -8,13 +8,12 @@ categories: javascript, AngularJS
  
 > 출처 및 참고 사이트<br>
 https://scotch.io/tutorials/angularjs-best-practices-directory-structure <br>
-<--https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make <br>-->
 <br>
 
 
 ## 문서를 만들기까지...
-
-본 내용은 보다 좋은 AngularJS 개발 폴더 구조 설계를 위해 상기 블로그 내용들을 참고한 내용을 간단하게 제멋대로? 정리한 내용이지만 프로젝트에 맞게 재설계하여 사용하면 좋을듯함.<br>
+본 내용은 보다 좋은 AngularJS 개발 폴더 구조 설계를 위해 상기 블로그 내용들을 참고한 내용이며 중요도가 다소 떨어진다 싶은 부분은 생략된 부분도 있습니다. 프로젝트 특성에 맞춰 적용하면 좋은 내용이 될것같습니다.
+잘못된 내용이나 추가 사항이 있으신분 께서는 아래 메일로 의견 주시면 반영하도록 하겠습니다.
 
 ![logo](https://angularjs.org/img/AngularJS-large.png)
 
@@ -80,7 +79,7 @@ AngularJS 앱 개발에 있어 모범사례와 구축을 하게된다면, 협업
 	---- img/       // 앱을 구성하는 이미지와 아이콘(별도의 서버로 구성되어 위와같은 폴더 트리를 구성한다면 더욱 좋음).
 	---- css/       // 앱을 구성하는 css 파일(별도의 서버로 구성되어 위와같은 폴더 트리를 구성한다면 더욱 좋음)(별도의 서버로 구성되어 위와같은 폴더 트리를 구성한다면 더욱 좋음).
 	---- js/        // AngularJS 이외에 별도로 앱을 이루는 파일
-	---- libs/      // 기타 필요에따라 사용되는 라이브러리
+	---- libs/      // 기타 필요에 따라 사용되는 라이브러리
 	index.html
 	
 이 구조를 읽고 이해하는데 있어 더욱 어렵게 느껴질 수 있지만 신입에게는 이전의 튜토리얼과 예시를 참조하게 된다면 도움이 될것입니다. 위 디렉토리 구조에서의 역할은 다음과 같습니다.
@@ -108,7 +107,7 @@ Shared 폴더는 각각의 개별 기능을 포함되며, 여러페이지에서 
 
 특히 각각의 구성을 이루는 부분의 경우 AngularJS Directives로 작성되어야합니다. 위와 마찬가지로 각각의 컴포넌트들은 마찬가지로 이들을 포함하는 폴더가 있어야하며, 자바스크립트 파일과 html 템플릿이 이루게 됩니다.
 
-일부 directive 는 자신의 services 자바스크립트 파일 자체를 하위 폴더 없이 포함할 수 있다.
+일부 directive 는 자신의 services 자바스크립트 파일 자체를 하위 폴더 없이 포함할 수 있습니다.
 
 This allows us to have definitive components for our site so that a slider will be a slider across the site. You would probably want to build it so that you could pass in options to extend it. For example, you could have:
 
@@ -122,35 +121,42 @@ Now this slider is accessible from any part of our site so we're not reinventing
 AngularJS로 이루어진 큰 앱을 개발하는데 있다면, 최대한 모듈화 할 것입니다. 다음은 내용은 이 작업을 수행하는데 있어 몇가지 추가 도움말입니다.
 
 #Header와 Footer(App Container)의 모듈화
-A good practice here would be to create a Core subfolder under components, and then a subfolder for the Header and Footer and any additional components that will be shared across many pages.A good practice here would be to create a Core subfolder under components, and then a subfolder for the Header and Footer and any additional components that will be shared across many pages.
+A good practice here would be to create a Core subfolder under components, and then a subfolder for the Header and Footer and any additional components that will be shared across many pages. <br>
+이해X : 이부분은 app안에서의 components폴더 안에 사이트 전체 공유될 root같은 폴더를 만들고 그안에 header와 footer를 넣으라는 말같은데 이건 Shared 안에다가 넣어야하는거아닌감...? 
 
 #라우터 모듈화
-In the structure above we didn’t do this, but another good practice for very large apps is to separate the routes into separate files. For example you might add a blogRoutes.js file in the /views/blog/ subfolder and there include only the routes relevant to the blog such as /blog/:slug, /blog/:slug/edit, blog/tags:/tags, etc.In the structure above we didn’t do this, but another good practice for very large apps is to separate the routes into separate files. For example you might add a blogRoutes.js file in the /views/blog/ subfolder and there include only the routes relevant to the blog such as /blog/:slug, /blog/:slug/edit, blog/tags:/tags, etc.
+In the structure above we didn’t do this, but another good practice for very large apps is to separate the routes into separate files. For example you might add a blogRoutes.js file in the /views/blog/ subfolder and there include only the routes relevant to the blog such as /blog/:slug, /blog/:slug/edit, blog/tags:/tags, etc. <br>
+이해X : 이부분은 views/blog/ 폴더안에 blogRoutes.js가 추가?? 뭐야 views안인데 route가 왜들어감...?
 
 #압축
-If you do decide to opt in and build your AngularJS apps in a modularized fashion, be sure to concatenate and minify your code before going into production. There are many great extensions for both Grunt and Gulp that will help with this – so don’t be afraid to split code up as much as you need.
+Grunt, Gulp등을 이용한 코드압축이 가능하며 따라서 코드 분할의 대한 걱정이 없습니다.
 
-You may not want to necessarily have just one giant .js file for your entire app, but concatenating your app into a few logical files like:
+하지만 반드시 전체의 AngularJS App의 대해서 큰 .js 파일을 원하지 않고 논리적인 파일 연결을 원할 수 있습니다.
 
-* app.js (for app initialization, config and routing)
-* services.js (for all the services)
+* app.js (앱 초기화, 설정과 라우팅)
+* services.js (모든 서비스)
 
-This will be greatly beneficial for reducing initial load times of your app.
+이부분의 대해서는 AngularJS app의 대한 초기 로딩 감소의 대해서 도움이 될것입니다.
 
-If you need some more tips on minifying, check out our guide: Declaring AngularJS Modules For Minification
+만약 압축의 대해서 더 필요한 부분은이 있다면 [Declaring AngularJS Modules For Minification](https://scotch.io/tutorials/declaring-angularjs-modules-for-minification) 참고 하시기 바랍니다.
+
 
 #일관성 네이밍
 이부분에 팁을 더한다면 추후 구성요소를 작성하거나, 추가적인 파일들이 추가가 될때 일관성있는 네이밍을 사용하여 두통에서 벗어날 수 있습니다.
 ex : blogViewhtml, blogServices.js, blogContainer.js
 
 ##모듈화 접근 방식 장점
+상기 예제는 AngularJS 구축의 모듈화 접근 방법의 대한 예입니다. 이 접근 방법은 다음과 같은 장점이 있습니다.
 
 #코드 유지보수
+논리적인 구분으로 인하여 위 내용에 따라 쉽게 찾고 수정이 가능합니다.
 
 #추가 확장
+코드 확장작업에 있어 아주쉽게 가능해지며, 새로운 추가 개발자의 대해서 구조의 대해서 설명을 한다면 쉽게 접근 할 수 있습니다. 또한 쉽게 새로운 기능을 테스트하거나 제거 할 수 있습니다.
 
 #디버깅
+모듈화된 접근 방식으로 인하여 코드 디버깅이 훨신 쉬워집니다.
 
 #테스팅
+테스트 스크립트를 작성하고 테스팅을하는 부분이 훨씬 쉽습니다.
 
-##결론
