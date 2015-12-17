@@ -12,7 +12,7 @@ https://scotch.io/tutorials/angularjs-best-practices-directory-structure <br>
 
 
 ## 문서를 만들기까지...
-본 내용은 보다 좋은 AngularJS 개발 폴더 구조 설계를 위해 상기 블로그 내용들을 참고한 내용이며 중요도가 다소 떨어진다 싶은 부분은 생략하거나 영어가 짧아(-_-)번역이 안되어 이상한글로 대체?한 부분도 있습니다. 프로젝트 특성에 맞춰 적용하면 좋은 내용이 될것같습니다.
+본 내용은 보다 좋은 AngularJS 개발 폴더 구조 설계를 위해 상기 블로그 내용들을 참고한 내용이며 중요도가 다소 떨어진다 싶은 부분은 생략하거나 영어가 짧아(-_-)번역이 안되거나 이상한글로 대체?한 부분과 제가 납득이 안되는 부분의 대해서 일부 생략된 부분이  있을 수 있습니다. 프로젝트 특성에 맞춰 적용하면 좋은 내용이 될것같습니다.
 잘못된 내용이나 추가 사항이 있으신분 께서는 아래 메일로 의견 주시면 반영하도록 하겠습니다.
 
 ![logo](https://angularjs.org/img/AngularJS-large.png)
@@ -107,26 +107,11 @@ Shared 폴더는 각각의 개별 기능을 포함되며, 여러페이지에서 
 
 특히 각각의 구성을 이루는 부분의 경우 AngularJS Directives로 작성되어야합니다. 위와 마찬가지로 각각의 컴포넌트들은 마찬가지로 이들을 포함하는 폴더가 있어야하며, 자바스크립트 파일과 html 템플릿이 이루게 됩니다.
 
-일부 directive 는 자신의 services 자바스크립트 파일 자체를 하위 폴더 없이 포함할 수 있습니다.
-
-This allows us to have definitive components for our site so that a slider will be a slider across the site. You would probably want to build it so that you could pass in options to extend it. For example, you could have:
-
-	<!-- user a slider directive to loop over something -->
-	<slider id='article-slider' ng-repeat='pictures' size='large' type='square'></slider>
-	
-
-Now this slider is accessible from any part of our site so we're not reinventing the wheel. We also just have to change in one place, the shared folder and it will update sitewide.
-
 ##모범사례
 AngularJS로 이루어진 큰 앱을 개발하는데 있다면, 최대한 모듈화 할 것입니다. 다음은 내용은 이 작업을 수행하는데 있어 몇가지 추가 도움말입니다.
 
 #Header와 Footer(App Container)의 모듈화
-A good practice here would be to create a Core subfolder under components, and then a subfolder for the Header and Footer and any additional components that will be shared across many pages. <br>
-이해X : 이부분은 app안에서의 components폴더 안에 사이트 전체 공유될 root같은 폴더를 만들고 그안에 header와 footer를 넣으라는 말같은데 이건 Shared 안에다가 넣어야하는거아닌감...? 
-
-#라우터 모듈화
-In the structure above we didn’t do this, but another good practice for very large apps is to separate the routes into separate files. For example you might add a blogRoutes.js file in the /views/blog/ subfolder and there include only the routes relevant to the blog such as /blog/:slug, /blog/:slug/edit, blog/tags:/tags, etc. <br>
-이해X : 이부분은 views/blog/ 폴더안에 blogRoutes.js가 추가?? 뭐야 views안인데 route가 왜들어감...?
+좋은 방법은 components 아래에 core 서브폴더를 생성하고, 그러면 서브폴더의 Header 와 Footer 그리고 컴포넌트가 추가 될때마다 여러페이지에걸처 공유될것입니다. 
 
 #압축
 Grunt, Gulp등을 이용한 코드압축이 가능하며 따라서 코드 분할의 대한 걱정이 없습니다.
@@ -139,7 +124,6 @@ Grunt, Gulp등을 이용한 코드압축이 가능하며 따라서 코드 분할
 이부분의 대해서는 AngularJS app의 대한 초기 로딩 감소의 대해서 도움이 될것입니다.
 
 만약 압축의 대해서 더 필요한 부분은이 있다면 [Declaring AngularJS Modules For Minification](https://scotch.io/tutorials/declaring-angularjs-modules-for-minification) 참고 하시기 바랍니다.
-
 
 #일관성 네이밍
 이부분에 팁을 더한다면 추후 구성요소를 작성하거나, 추가적인 파일들이 추가가 될때 일관성있는 네이밍을 사용하여 두통에서 벗어날 수 있습니다.
