@@ -4,7 +4,7 @@ title:  "AngularJS 살펴보기..."
 date:   2015-12-01
 categories: javascript, AngularJS
 ---
-## 1. 들어가기에 앞서...<br>
+## 들어가기에 앞서...<br>
  
 > 출처<br>
 http://d2.naver.com/helloworld/1172239 <br>
@@ -19,14 +19,14 @@ Backbonejs 위주로 다루(유지보수)었던 나로서 사실 AngularJS는(jQ
 결론은 이래나 저래나 개발자로서의 프레임워크의 대한 학습이 되엇든, 코어단으로부터의 개발이 되엇든지간에 가장 최종적인 목표는 사용하기 쉽고 유지보수가 간편하게 이우러질수있는 코드라면 잘짜여진 코드가 아닐까? 라는 생각(먼놈의 잡소리가 이리 길어.)<br>
 
  
-## 2. 기본개념<br>
+## 기본개념<br>
 
-#2.1 MVC 
+#MVC 
 프로그래밍 개발에 있어 소프트웨어의 구조 혹은 아키텍처를 구성할때 많이 사용되며 최근 프레임워크들은 이러한 패턴들을 많이 채용하고 있다.<br>
 
-2.1.1 모델(model)<br>
+*** 모델(model)<br>**
 데이터에 가까운 구조이다. 최근 서버와 데이터 통신하기위해 사용되는 key : value 형태로 이루어진 JSON을 많이 사용하고 있다.<br>
-
+	
 	{
 		'collection' : [{
 			'name' : '자바스크립트',
@@ -40,17 +40,17 @@ Backbonejs 위주로 다루(유지보수)었던 나로서 사실 AngularJS는(jQ
 		}]
 	}
 
-
-2.1.2 뷰(view)<br>
+*** 뷰(view)<br>**
 뷰(view)는 HTML과 CSS의 렌더링이 마친 상태를 말함. 보통 모델(model)에서의 데이터를 이곳에서 display된다.<br>
-2.1.3 컨트롤러(controller)<br>
+
+*** 컨트롤러(controller)<br>**
 모델(model)과 뷰(view) 중간사이에서 직접적인 연관이 있으며 사용자의 요구사항이나 요청에따라 그에 맞는 데이터를 모델(model)에 요구하여 결과를 뷰(view)에 반영하는 역활을 주목적으로한다.<br>
    
-#2.2 AngularJS
+#AngularJS
 위 내용에서 설명한 MVC 형태로 이루어진 SPA(Single Page Application) 애플리케이션을 개발 가능하도록 설계된 프레임워크중 하나이다.(추후 이문서가 정리되는대로 Backbonejs도 정리해보겠음..)<br>
 특히나 컨트롤러(controller)와 디렉티브(Directive) 내에는 ng-app 아래에 각각의 트리구조형태의 scope가 존재함.<br>
 
-2.2.1 Getting Started with angular <br>
+**Getting Started with angular <br>**
 HTML에서 ng-* 와 같은 형태로 정의되어 사용되며 스크립트에서 작성된 모듈과 컨트롤러등의 이름으로 매핑되어 사용됨.
 
 	<div ng-app='myApp'>
@@ -59,7 +59,7 @@ HTML에서 ng-* 와 같은 형태로 정의되어 사용되며 스크립트에�
 		</div>
 	</div>
 
-Angular Module and controller
+**Angular Module and controller**
 
 	//모듈의 정의는 AngularJS 애플리케이션의 시작이며 기본단위이다.
 	var myApp = angular.module('myApp', []);
@@ -86,7 +86,7 @@ Angular Module을 다음과 같은 chain형태로 사용가능하지만 유지�
 
 그리고 각각의 Service, Controller, Route, Directive, Factory 등 필요에 따라 파일을 생성하여 파일을 압축 및 하나의 스크립트로 생성하여 DOM에 사용함.
 
-2.2.2 Controller<br>
+**Controller<br>**
 컨트롤러는 모듈 내에 정의되며 ng-controller를 통하여 선언된 $scope를 통하여 DOM과 데이터 처리, 이벤트 핸들러 함수등이 이곳에서 정의됨.
 
 	<div ng-app='myApp'>
@@ -152,7 +152,7 @@ DOM을 통하여 user 네임스페이스가 각각의 프로퍼티를 통해 dis
 		...
 	}
 	
-2.2.3 Directive<br>
+**Directive<br>**
 디렉티브는 AngularJS에서 제공되는 템플릿 HTML의 작은 조각같은 형태이다. 어렵지만 저는 일단 AngularJS의 HTML에서의 DOM 엘리먼트로 이해하는것으로 받아들임.-_-(ㅠㅠ). <br>
 
 	<!-- 1. 속성을 이용한 선언-->
@@ -183,7 +183,7 @@ DOM을 통하여 user 네임스페이스가 각각의 프로퍼티를 통해 dis
 	
 각 몇가지 속성을 다음과 같이 정리.
 
-<strong> * restrict : 디렉티브를 사용에 있어 다음과 같은 옵션을 이용하여 엘리먼트의 속성을 지정.</strong><br>
+*** restrict : 디렉티브를 사용에 있어 다음과 같은 옵션을 이용하여 엘리먼트의 속성을 지정.<br>**
 A : attribute
 
 	<a custom-button>click me</a>
@@ -200,7 +200,7 @@ M : comment
 
 	<!--directive : custom-button-->
 
-<strong> * replace : 디렉티브를 기준으로 template, templateUrl에 작성된 내용으로 교체.</strong><br>
+*** replace : 디렉티브를 기준으로 template, templateUrl에 작성된 내용으로 교체.<br>**
 true
 
 	<div ng-app="myApp" class="ng-scope">
@@ -213,7 +213,7 @@ false
 	    <a custom-button="" href=""><button>replace test</button></a>
 	</div>
 	
-<strong> * transclude : 디렉티브의 ng-transclude를 기준으로 template를 원본에 포함 유무를 결정.</strong><br>
+*** transclude : 디렉티브의 ng-transclude를 기준으로 template를 원본에 포함 유무를 결정.<br>**
 true
 
 	<div ng-app="myApp" class="ng-scope">
@@ -237,7 +237,7 @@ false
         </a>
 	</div>
 
-<strong> * template : 디렉티브 내에 html을 사용(개인적으로 좋아하지 않음)</strong> <br>
+*** template : 디렉티브 내에 html을 사용(개인적으로 좋아하지 않음)<br>**
 
 	myApp.directive('customButton', function() {
 		return {
@@ -245,7 +245,7 @@ false
 		}
 	});
 	
-<strong> * templateUrl : 별도의 html파일 경로를 정의함.</strong> <br>
+*** templateUrl : 별도의 html파일 경로를 정의함.<br>**
 
 	myApp.directive('customButton', function() {
 		return {
@@ -268,8 +268,10 @@ false
 			<i class='icon-ok-sign'></i>
 		</a>
 	</script>
-	
-2.2.4 Services
+
+
+
+**Services<br>**
 서비스는 AngularJS에서 사용되는 Class를 정의하며 첫번째 인자의 키값을 두번째 인자로서는 AngularJS에서 첫번째 인자의 키값을 이용하여 만들 싱글톤 객체입니다.
 
 	myApp.service('Math', function() {
@@ -290,7 +292,9 @@ false
 			var result = Math.multiply(a,b);
 	}]);
 
-2.2.5 Factories<br>
+
+
+**Factories<br>**
 팩토리는 서비스와 반대로 싱글톤이 아닌 객체 자체를 이용하여 dependency하는 방식입니다.
 
 	myApp.factory('Server', ['$http', function($http) {
@@ -314,7 +318,8 @@ false
 	}]);
 
 
-2.2.6 Routing<br>
+
+**Routing<br>**
 AngularJS는 Backbonejs처럼 Routing을 지원한다. 즉 브라우저 URL에 따라 template, controller 대응이 가능하다.
 	
 	//route를 사용하기위해 $routeProvider를 이용한다.
