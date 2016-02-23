@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "ECMA-262-3 Chapter 1"
+date:   2016-02-22
+categories: javascript
+---
+
+## 정의
+ * 해당 내용은 ECMAScript 실행 콘텍스트(Execution Contexts), 실행 코드(Executable Code)의 대해서 언급하며 본내용은 ECMA-262명세서에 논리적으로 언급하는 내용이 아닌 추상적인 개념이다.
+ * 스택은 다양한 종류의 실행 콘텍스트가 들어오고 나가면서 변경(pushed, popped)된다.
+
+
+
+## 용어
+ * 실행 콘텍스트(Execution Contexts)
+   
+   실행 코드에서 실행되는 특정 순간을 의미하며, 이때 실행 코드의 종류에따라 실행 콘텍스트의 성격이 결정된다.
+
+
+ * 실행 코드(Executable Code)
+ 
+   외부 .js파일이나 지역 인라인코드(<script\></script\> 태그 안쪽)가 이에 해당한다.
+
+
+ * 제어
+ 
+   ECMAScript의 실행코드로 제어가 전달되면 이 제어는 실행 콘텍스트로 진입한다.
+
+
+ * 실행 콘텍스트 스택(Execution Contexts Stack)
+ 
+   활성화된 실행 콘텍스트들은 논리적으로 스택의 형태로 구성되며, 스택의 바닥(bottom)에는 항상 전역 문맥(Global Context)위치하고, 꼭대기(top)에는 현재(활성화) 실행 콘텍스트가 자리를 잡는다. 현재(활성화) 실행 콘텍스트가 실행되거나 종료되면 실행콘텍스트 스택에서 추가, 제거되며, 이에따라 제어가 이동된다.
+
+
+## 구조 및 흐름
+
+![image](/images/ecma001.jpeg)
