@@ -5,6 +5,12 @@ date:   2016-02-22
 categories: javascript
 ---
 
+
+> 출처 및 참고 사이트<br>
+http://huns.me/development/159<br>
+http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts
+<br>
+
 ## 정의
  * 해당 내용은 ECMAScript 실행 콘텍스트(Execution Contexts), 실행 코드(Executable Code)의 대해서 언급하며 본내용은 ECMA-262명세서에 논리적으로 언급하는 내용이 아닌 추상적인 개념이다.
  * 스택은 다양한 종류의 실행 콘텍스트가 들어오고 나가면서 변경(pushed, popped)된다.
