@@ -18,7 +18,7 @@ https://scotch.io/tutorials/angularjs-best-practices-directory-structure <br>
 ![logo](https://angularjs.org/img/AngularJS-large.png)
 
 
-##표준 구조
+##표준 구조1
 AngularJS를 포함한 많은 폴더가 아래와 같은 구조를 보이고 있습니다.
 	
 	app/
