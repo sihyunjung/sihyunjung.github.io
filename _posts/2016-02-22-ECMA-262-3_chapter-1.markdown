@@ -11,6 +11,9 @@ http://huns.me/development/159<br>
 http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts
 <br>
 
+## 목적
+자바스크립트로 인한 개발을 진행하면서 실행컨텍스트의 핵심적인 내용만 정리하여 보다 간결하게 보기위함에 그 목적에 있다. 상기 출처사이트와 같이 병행하여 본다면 보다 많은 도움이 될것이다. 
+	
 ## 정의
  * 해당 내용은 ECMAScript 실행 콘텍스트(Execution Contexts), 실행 코드(Executable Code)의 대해서 언급하며 본내용은 ECMA-262명세서에 논리적으로 언급하는 내용이 아닌 추상적인 개념이다.
 
