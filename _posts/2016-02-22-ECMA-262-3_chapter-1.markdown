@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ECMA-262-3 Chapter 1"
+title:  "ECMA-262-3 Chapter 1 ECMA 262-3 Execution context"
 date:   2016-02-22
 categories: javascript
 ---
