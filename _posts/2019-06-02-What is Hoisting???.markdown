@@ -8,7 +8,7 @@ categories: javascript
 ## 자바스크립트에서 호이스팅이란?
 자바스크립트에서 호이스팅(Hoisting)이란 아주 중요한 개념중 한 가지이다. 호이스팅을 번역을 하면 네이버사전에서는 다음과 같이 해석하고 있다.
 
- ![ex_screenshot](./../images/hoisting.png)
+ ![ex_screenshot](https://github.com/yoosoo-won/yoosoo-won.github.io/blob/master/images/hoisting.png)
  
 말 그대로 자바스크립트에서도 똑같이 적용되며, 적용대상은 변수와 함수에 적용된다.
 
