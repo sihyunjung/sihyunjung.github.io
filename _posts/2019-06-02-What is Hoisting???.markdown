@@ -63,6 +63,7 @@ function getName() {
 
 3. 실행콘텍스트 `실행` 단계
 실행단계에서 실행콘텍스트에서의 변수객체의 변수 property value 값이 할당된다.
+
 ```js
 var frontText = '나의 개발장비는 ';
 var backText = '이다.';
