@@ -16,14 +16,14 @@ categories: javascript
 자바스크립트 엔진이 자바스크립트 토큰(token)단위의 코드를 만나게되면, 자바스크립트는 해석기는 실행콘텍스트(Execution Context)를 생성하며, 이때 실행콘텍스트 종류에 따라 크게 다음과 같이 나뉜다.
 > 이글은 호이스팅에 대해서만 언급을 하니 자바스크립트 해석기가 코드를 실행콘텍스트와 실행 대해서 어떻게 다루는지 추후에 다시한번 다뤄보겠다.
 
-1. GlobalContext
-2. FunctionContext
-3. EvalContext 
+* GlobalContext
+* FunctionContext
+* EvalContext 
 
 이와 같은 실행콘텍스트들은 함수가 실행 될 때, 생성이 되는데, 실행콘텍스트는 다시 다음과 같은 구조를 가지고 있다.
-1. **변수객체(Variable Object)**
-2. 스코프 체인(Scope chain)
-3. This
+* **변수객체(Variable Object)**
+* 스코프 체인(Scope chain)
+* This
  
 위 구조에서 호이스팅이 일어나는 부분은 변수객체에서 발생한다. 이 코드를 단계별로 설명하면 다음과 같다.
 1. `코드` 레벨
