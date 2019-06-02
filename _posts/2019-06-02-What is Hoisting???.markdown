@@ -48,6 +48,7 @@ console.log(frontText + getName() + backText);
 * 내장함수와 함수의 매개변수가 초기화.
 * 콘텍스트내에서 변수객체의 변수 property value 모두 undefined 초기화.
 * 함수(함수선언식)는 모든 함수 property value 값이 reference 를 참조.
+
 ```js
 var frontText = undefined;
 var backText = undefined;
