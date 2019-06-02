@@ -80,7 +80,7 @@ console.log(frontText + getName() + backText);
 ## 정리
 1. 자바스크립트해석기는 코드레벨에서 함수와 변수를 찾아 변수객체의 변수에 property value에 변수는 undefined, 함수는 property value 값이 reference 초기화 된다.
 2. 실행단계에서 변수객체에 변수객체의 변수 property value에 값을 할당한다.
-> ES6에서도 호이스팅은 발생합니다. 이때 실행단계에서 TDZ(Temporal Dead Zone)에 의해서 상단에 변수를 선언되지 않으면 에러가 출력된다.(나중에 자세히 다뤄보는걸로...)
+> ES6에서도 호이스팅은 발생합니다. 이때 초기화단계에서 TDZ(Temporal Dead Zone)에 의해서 상단에 변수를 선언되지 않으면 에러가 출력된다.(나중에 자세히 다뤄보는걸로...)
 
 
 ## 결론
