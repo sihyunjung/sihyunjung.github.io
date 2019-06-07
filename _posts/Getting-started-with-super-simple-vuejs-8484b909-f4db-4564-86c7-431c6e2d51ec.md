@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "연동확인"
+date:   2019-06-02
+categories: javascript
+---
+
 # Getting started with super simple vuejs
 
 # 1. vuejs mount하기
