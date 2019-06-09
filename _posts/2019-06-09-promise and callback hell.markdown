@@ -13,6 +13,7 @@ Promise 상태와 수행<br/>
 출처<br/>
 
 ## Callback Hell(골백지옥)
+---
 나는 자바스크립트 개발을 하면서 다음과 같이 코딩을 해본적이 종종 있다.
 ```javascript
 $.ajax(
@@ -39,6 +40,7 @@ $.ajax(
 다소 극단적으로 작성하였지만, 위 코드는 $.ajax작업 수행이 성공적으로 이루어진 경우 success 안의 작업들이 동기적 실행으로 보장받기 위해서 작성한다. 그러면서 코드시선이 위에서 아래로가 아닌 위에서 우측으로 내려가는 느낌이들며, 수행하는 순서와 scope가 해깔리기 시작한다. 그래서 나온것이 Promise이다.
 
 ## Promise 정의
+---
 Promise는 ECMA Script6 스펙에 포함된 기능중 하나이다.
 ```javascript
 const doSomething = new Promise(('성공동작함수', '실패동작함수'), => {
@@ -52,6 +54,7 @@ const doSomething = new Promise(('성공동작함수', '실패동작함수'), =>
 ```
 
 ## Promise 사용과 Promise Chaining
+---
 Promise의 기능은 callback을 callback안에서 실행이 아닌 위에서 아래로 순차적으로 실행 한다.
 ```javascript
 var doSomething = function() {
@@ -84,9 +87,11 @@ doSomething(resource.id).then(function(id) {
 ```
 
 ## 흐름
+---
 ![흐름](https://javascript.info/article/promise-basics/promise-resolve-reject@2x.png)*출처: https://javascript.info/promise-basics*
 
 ## Promise 상태와 수행
+---
 - unsettled(성공 or 실패 작업에 대해 결론이 없는 상태)
   - 대기(초기 상태, 결과가 없거나 진행중인 상태, new Promise())
 - settled(성공 or 실패 작업에 대해 결론이 있는 상태)
@@ -124,12 +129,15 @@ console.log('4');
 7. Promise이 catch수행하면서 큐에 들어감
 8. console.log('4') -> 4
 9. resolve가 먼저 실행되었으므로 Promise.then 통하여 큐에 들어간 작업이 수행됨 -> 1
-만약 reject가 먼저 수행되었다면 resolve 무시되며, catch가 수행되며 2번이 찍혔을것이다. <br/>
+만약 reject가 먼저 수
+행되었다면 resolve 무시되며, catch가 수행되며 2번이 찍혔을것이다. <br/>
 0 -> 3 -> 4 -> 2
 
 ## 결론
+---
 Promise이해는 자바스크립트 개발자라면 반드시 이해해야한다. 위 글에서 Promise가 아직 이해가 안된다고 생각한다면, 자바스크립트에서 동기와 비동기 개념에 대해서 다시한번 이해할 필요가 있다고 본다.
 
 ## 출처
+---
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 [https://javascript.info/promise-basics](https://javascript.info/promise-basics)
