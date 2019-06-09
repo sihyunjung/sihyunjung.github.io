@@ -84,3 +84,52 @@ doSomething(resource.id).then(function(id) {
 ```
 
 ## 흐름
+![흐름](https://javascript.info/article/promise-basics/promise-resolve-reject@2x.png)*출처: https://javascript.info/promise-basics*
+
+## Promise 상태와 수행
+- unsettled(성공 or 실패 작업에 대해 결론이 없는 상태)
+  - 대기(초기 상태, 결과가 없거나 진행중인 상태, new Promise())
+- settled(성공 or 실패 작업에 대해 결론이 있는 상태)
+  - 실행(fulfilled or resolved): 작업 수행 성공
+  - 거부(rejected): 작업 수행 실패
+
+위 상태라는 이론을 기초로 하여 다음과 같이 Promise 사용하면 어떻게 될까...?
+```javascript
+// q1
+console.log('0');
+const doSomething = new Promise((resolve, reject) => {
+  resolve('1');
+  reject('2');
+  console.log('3');
+});
+doSomething.then((res) => {
+  console.log(res);
+});
+doSomething.catch((error) => {
+  console.log(error);
+});
+console.log('4');
+```
+- q1<br/>
+0 -> 3 -> 4 -> 1
+### 해설
+상기 흐름에 그림을 참조하면 state가 존재한다. Promise가 resolve or reject가 실행하기 위해서는 Promise의 state가 반드시 unsettled(pending)상태이어야 한다. 그리고 resolve or reject 수행 후 settled로 변경되어 이후에 아무리 resolve or reject가 아무리 실행되어도 무시된다. <br/>
+#### 순서(실행순서 기준로만 작성)
+1. console.log('0') -> 0
+2. new Promise 작업 수행: Promise state 상태 unsettled
+3. resolve('1'): Promise state 상태 settled
+4. reject('2'): Promise state 상태 settled, reject무시됨
+5. console.log('3') -> 3
+6. Promise이 then수행하면서 큐에 들어감
+7. Promise이 catch수행하면서 큐에 들어감
+8. console.log('4') -> 4
+9. resolve가 먼저 실행되었으므로 Promise.then 통하여 큐에 들어간 작업이 수행됨 -> 1
+만약 reject가 먼저 수행되었다면 resolve 무시되며, catch가 수행되며 2번이 찍혔을것이다. <br/>
+0 -> 3 -> 4 -> 2
+
+## 결론
+Promise이해는 자바스크립트 개발자라면 반드시 이해해야한다. 위 글에서 Promise가 아직 이해가 안된다고 생각한다면, 자바스크립트에서 동기와 비동기 개념에 대해서 다시한번 이해할 필요가 있다고 본다.
+
+## 출처
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+[https://javascript.info/promise-basics](https://javascript.info/promise-basics)
