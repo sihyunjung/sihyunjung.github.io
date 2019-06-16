@@ -24,6 +24,7 @@ myFn('MacBook').then((name) => {
 ![결과1](https://user-images.githubusercontent.com/15857404/59558689-d18db380-9032-11e9-8c01-830794a2b3a9.png)
 
 * await은 오직 async로 정의된 함수안에서만 사용이 가능하다.
+
 ```javascript
 // as-is
 const myFn = (data) => {
@@ -41,6 +42,7 @@ const myFn = async (data) => {
 
 myFn('MacBook');
 ```
+
 ![결과2](https://user-images.githubusercontent.com/15857404/59558731-cdae6100-9033-11e9-9d5a-b60ef63445fb.png)
 
 * await을 사용하는 함수는 반드시 Promise 객체를 리턴해야 기대한 기능이 적용된다.
