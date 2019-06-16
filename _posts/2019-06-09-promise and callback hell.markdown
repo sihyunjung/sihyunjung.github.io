@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Promise와 Callback Hell"
+title:  "Promise와 Callback Hell[Part 1]"
 date:   2019-06-09
 categories: javascript
 ---
@@ -57,13 +57,14 @@ const doSomething = new Promise(('성공동작함수', '실패동작함수'), =>
 ---
 Promise의 기능은 callback을 callback안에서 실행이 아닌 위에서 아래로 순차적으로 실행 한다.
 ```javascript
-var doSomething = function() {
-  return new Promoise(function(resolve, reject) {
-    if (resource) {
-      resolve(resource);
+var doSomething = function(resourceId) {
+  return new Promise(function(resolve, reject) {
+    if (resourceId) {
+      resolve(resourceId);
     } else {
       reject(new Error('실패!'));
       // reject 수행시 catch 실행
+    }
   });
 }
 
