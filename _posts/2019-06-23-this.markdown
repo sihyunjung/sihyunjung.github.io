@@ -1,0 +1,96 @@
+---
+layout: post
+title:  "this이해하기"
+date:   2019-06-23
+categories: javascript, this
+---
+자바스크립트에서 this는 개발자에게 매우 알면서도 해깔리게 하는 존재중 하나이다. 또한 this는 실행콘텍스트의 property(this, 변수객체(VO), scope chanin)중 하나이다. 실행콘텍스트는 함수가 실행될때 생성되는데 이때 this는 함수 호출 방법에 의해 결정된다. 실행콘텍스트관련 생성과정에 대해서는 차후에 정리할 예정이다.
+
+
+## 기본
+---
+this는 함수가 호출될때 자신의 이름앞에 식별자에 의해서 결정된다. 여기서 식별자는 변수 이름, 함수 이름, 전달이름등 이된다. 즉 함수를 호출하는 이름앞에 식별자가 존재하지 않는다면 null이지만 암묵적으로 this는 window객체를 가르킨다.
+
+
+## window 객체에서의 this
+---
+window객체에서는 this는 window 객체를 가르킨다. 이것은 GlobalContext와 같다.
+
+```javascript
+this.myName = 'iPhone';
+window.myName === this.myName // true;
+this === window; // true
+```
+
+## 단순 함수 호출
+---
+아래는 단순하게 함수를 선언하여 바로 사용한 경우이다. 경우 getName앞에 식별자가 존재하지 않는다. getName()으로 실행만 존재할 뿐이다. 따라서 위에서 이미 언급하였지만 this가 null로 채워지지만 암묵적으로 window객체로 변경된다.
+
+```javascript
+function getName() {
+  return this;
+}
+getName(); // this는 window가 된다.
+```
+
+## 메소드 호출
+---
+다음은 method로 함수를 실행한 경우이다. 아래 코드의 경우 myInfo라는 식별자가 존재하므로 myInfo가 getName함수의 this가 된다.
+
+```javascript
+var myInfo = {
+  name: 'iPhone',
+  getName() {
+    return this;
+  };
+};
+
+myInfo.getName(); // myInfo<object>
+myInfo === myInfo.getName(); // true;
+```
+
+## bind, call, apply에서의 this
+---
+위에서 함수의 this가 함수가 호출될때 식별자에 의해서 결정된다고 설명하였다. 하지만 bind, call, apply를 이용한다면 자신이 원하는 값으로 this로 지정할 수 있다.
+
+```javascript
+// bind
+var myInfo = {
+  name: 'iPhone',
+  getName() {
+    return this;
+  }
+};
+var newMyInfo = {
+  name: 'Macbook'
+};
+
+var newFn = myInfo.getName.bind(newMyInfo); // getName함수를 newMyInfo객체를 this로 변경한다 -> newMyInfo<object>
+myInfo === newFn(); // false;
+
+// call, apply(두 함수의 차이는 params를 각각 단일로 넘기느냐, 배열로 넘기느냐 차이일뿐 기능은 동일하다)
+myInfo === myInfo.getName.call(newMyInfo); // false
+```
+
+## 생성자 함수
+---
+단순함수 호출과 메서드로서의 함수호출과는 다르게 new키워드와 함수를 함께 호출하면 자바스크립트는 새로운 객체를 반환하는데 이것이 생성자 함수의 this가 된다.
+
+```javascript
+var self;
+function Info() {
+  self = this;
+}
+var info = new Info();
+
+info === self; // true
+
+```
+
+## 결론
+---
+자바스크립트에서 this의 개념은 매우 중요한 요소중 하나이다. this가 결정되는 시점과 개발자의 역량에 따라 this 적절히 활용하는것은 매우 중요하다.
+
+## 참조
+---
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
