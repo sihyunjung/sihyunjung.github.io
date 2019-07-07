@@ -1,0 +1,123 @@
+---
+layout: post
+title:  "scope"
+date:   2019-07-07
+categories: javascript, scope, 스코프
+---
+
+## 기본
+---
+
+변수나, 함수명을 찾을때 검색되는 위치?를 찾을 때, 찾는 위치를 찾아보는곳 이라고 생각하면 된다. 예를 들어 
+저격 스나이퍼가 소총으로 target을 찾고자할때 사용하는것이 scope를 이용하여 target을 찾는데 자바스크립트도 비슷하게 생각하면 된다. 자바스크립트에서는 socpe으로 함수이름이나 변수이름을 찾지만 스나이퍼는 scope을 통해서 저격의 대상을 찾는다.
+
+![저격소총](https://upload.wikimedia.org/wikipedia/commons/f/f4/S%26T_Motiv_K14.JPG)
+출처: 위키백과
+
+### 함수 스코프
+es5이하의 버전에서는 변수의 유효범위는 오직 함수단위로만 생성된다. 이것은 매우 중요하다. (특히 나중에 다루게될 실행콘텍스트(Execution Context)과도 밀접한 관련이 있다. 지금은 scope에대해서만 다루겠다.)
+이 말은 scope가 블락단위가 아닌 함수 단위로 생성된다라는 말이다.
+
+```javascript
+// only 함수로만 socpe가 생성된다
+(function(){
+  var goodsName = '맥북';
+  console.log(goodsName); // 맥북
+  (function(){
+    var goodsName = '아이폰';
+    console.log(goodsName); // 아이폰
+  })();
+})();
+
+// block scope
+{
+  var myName = '아이맥';
+}
+console.log(myName); // TDZ에 걸림
+```
+함수 스코프의 경우 es5에서 사용되었으며 함수 스코프 이외에는 스코프를 정할 수가 없어서 부득이하게 scope를 정의 하기위해 함수가 사용되어왔다. 하지만 es6에서는 block 단위 scope가 정의가 가능하며, 유효범위에 벗어나는부분은 TDZ(Temporal Dead Zone)이라는 임시 사각지대라는 장치로 동작이되어 에러가 발생한다. 이부분은 es6 next version으로 다뤄보겠다.
+
+## scope와 for문
+---
+
+### quiz 1
+
+```html
+<button class="btn0">버튼0</button>
+<button class="btn1">버튼1</button>
+<button class="btn2">버튼2</button>
+<button class="btn3">버튼3</button>
+<button class="btn4">버튼4</button>
+```
+
+```javascript
+  for (var i = 0; i < 5; i++) {
+    document.getElementsByClassName('btn' + i)[0].addEventListener('click', function() {
+      console.log(i); // for 문이 종료되고, i의 값이 찍힐 시점에서는 변수객체 i가 5가된 상태 즉 for문의 변수 i가 아니라 전역 변수 i가 된다.
+    });
+  }
+  
+  // es5문법 해결
+  for (var i = 0; i < 5; i++) {
+    (function(j) { // 전역변수 i가 아닌 함수스코프의 j를 받아 즉시 실행함수로 콘텍스트별로 j의 상태값을 저장한다.
+      document.getElementsByClassName('btn' + j)[0].addEventListener('click', function() {
+        console.log(j);
+      });
+    })(i);
+  }
+  
+  // es6문법 해결
+  for (let i = 0; i < 5; i++) {
+    document.getElementsByClassName('btn' + i)[0].addEventListener('click', function() {
+      console.log(i); //??
+    });
+  }
+```
+### quiz 2
+```javascript
+  var fns = [];
+
+  for (var i = 0; i < 5; i++) {
+    fns.push(function() {
+      console.log(i); // scope은 함수가 실행될 때 생성되며, 이때 i의 socpe은 전역을 바라본다.
+    });
+  }
+
+  fns.forEach(function(fn) {
+    fn(); // 함수 실행될때 함수 내부에 i가 선언되지 않았으므로 전역 scope의 i를 바라보게 되며, 5가 찍힘
+  });
+
+  //es5 문법 해결
+  var fns = [];
+
+  for (var i = 0; i < 5; i++) {
+    fns.push((function(j) {
+      // push할 때 즉시 실행함수로 함수 스코프를 생성하여 함수를 리턴한다
+      return function() {
+        console.log(j);
+      }
+    })(i));
+  }
+
+  fns.forEach(function(fn) {
+    fn(); // 즉시 실행 함수로 리턴받은 함수가 실행되며, 이때 각각 함수 스코프가 생성된 영역의 j값을 얻어온다
+  });
+
+  //es6 문법 해결
+  const fns = [];
+
+  for (let i = 0; i < 5; i++) {
+    fns.push(function() {
+      console.log(i); // block 단위 스코프가 생성되어 각 변수객체에 i가 저장된다.
+    });
+  }
+
+  fns.forEach(function(fn) {
+    fn();
+  });
+```
+
+## 결론
+---
+
+위 scope와 for문 문제를 완전히 이해를 하고 설명이 가능하다면 scope를 이해했다라고 생각한다. scope이해는 매우 중요하며, 자바스크립트 개발을 하면서 디버깅에서 빛을 발휘하는 경우가 많다. 또한 실행콘텍스트와 실행콘텍스트스택과도 밀접한 연관이 있다. 따라서 스코프의 이해는 중요한 요소라고 볼 수 있다.
