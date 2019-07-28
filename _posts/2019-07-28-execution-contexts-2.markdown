@@ -44,7 +44,7 @@ categories: javascript, execution contexts
 그림 함수 scope chain 생성과 초기화
 
 ![scope chain에 push](https://user-images.githubusercontent.com/15857404/62004210-0f671700-b15d-11e9-8a3d-867d3bd5a959.png)
-그림 scope chain에 push
+그림 함수 콘텍스트의 스코프 체인에 push
 
 #### Variable Object 초기화
 스코프 체인의 생성과 초기화(함수의 경우 scope chain에 push까지) 후 VO가 초기화 되는데 전역 코드의 경우 GO(Global Object), 함수 코드의 경우 AO (Activation Object)를 가르킨다. 이 때 함수의 경우 매개변수가 전달 받은 인자값으로 값이 결정된다. 그리고 함수 호이스팅과 변수 호이스팅이 일어난다.
