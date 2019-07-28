@@ -9,7 +9,7 @@ categories: javascript, execution contexts
 ---
 실행콘텍스트는(execution contexts)는 지금까지 정리한 [클로저(closure)](https://yoosoo-won.github.io/javascript,/closure,/%ED%81%B4%EB%A1%9C%EC%A0%80/2019/06/30/closure.html), [함수(function)](https://yoosoo-won.github.io/javascript,/function,/function/declarations,/expressions/2019/07/14/function-declarations-vs-function-expressions.html), [호이스팅(hoisting)](https://yoosoo-won.github.io/javascript/2019/06/02/What-is-Hoisting.html), [스코프(scope)](https://yoosoo-won.github.io/javascript,/scope,/%EC%8A%A4%EC%BD%94%ED%94%84/2019/07/07/scope.html), [this](https://yoosoo-won.github.io/javascript,/this/2019/06/23/this.html) 등과 아주 밀접한 관련이 있으며, 따라서 실행콘텍스트에 대한 이해가 아주 중요하다. 어쩌면 그 동안 모호하게 이해가 되었던 부분이 모두 연결이 될 것이다.
 
-실행콘텍스트가 생성되기 위해서는 코드가 실행 되기 위한 반드시 필요한 환경이라고 보면 되겠다. 그리고 콘텍스트는 다음과 같이 분류하며, [ECMA-262 스펙](https://developer.mozilla.org/ko/docs/Web/JavaScript/%EC%96%B8%EC%96%B4_%EB%A6%AC%EC%86%8C%EC%8A%A4)에서 정의하는 추상적인 개념이며, 실제로 자바스크립트 엔진이 Stack처럼 동작하는지는 모른다.
+실행콘텍스트는 실행가능한 코드가 실행 되기 위한 반드시 필요한 환경이라고 보면 되겠다. 그리고 콘텍스트는 다음과 같이 분류하며, [ECMA-262 스펙](https://developer.mozilla.org/ko/docs/Web/JavaScript/%EC%96%B8%EC%96%B4_%EB%A6%AC%EC%86%8C%EC%8A%A4)에서 정의하는 추상적인 개념이며, 실제로 자바스크립트 엔진이 Stack처럼 동작하는지는 모른다.
 
 * 전역코드(Global Context)
 * 함수코드(Function Context)
