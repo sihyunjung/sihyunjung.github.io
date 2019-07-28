@@ -61,3 +61,13 @@ categories: javascript, execution contexts
 ## 결론
 ---
 지금까지 콘텍스트가 EC에 쌓이고 진입단계의 대해서 다루었다. 다음에 마지막으로 실행에 대해서 언급하고자한다.
+
+## 참조
+---
+http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/
+http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/
+http://dmitrysoshnikov.com/ecmascript/chapter-3-this/
+http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/
+http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/
+http://dmitrysoshnikov.com/ecmascript/chapter-6-closures/
+https://www.codebyamir.com/blog/javascript-execution-contexts
