@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "자바스크립트 실행콘텍스트와 동작원리 -1부- (실행콘텍스트의 3가지 종류와 기본 실행)"
+title:  "자바스크립트 실행콘텍스트와 동작원리 -1부- (실행콘텍스트의 3가지 종류)"
 date:   2019-07-21
 categories: javascript, execution contexts
 ---
@@ -66,7 +66,7 @@ outer('kkk');
 
 ### Scope Chain
 스코프 체인은 일종에 배열 형태로 구성되며, 중첩된 콘텍스트의 레퍼런스 정보를 가지고 있다.
-![Scope Chain](https://user-images.githubusercontent.com/15857404/61589354-a6732280-abe3-11e9-9d36-e138f9033f92.png)
+![Scope Chain](https://user-images.githubusercontent.com/15857404/62002404-424de280-b13e-11e9-9c30-3c6f00e0de1d.png)
 
 > `Global EC`의 scope chain 0번과 `<outer> EC` scope chain 1번은 서로 같은 객체이다.
 
