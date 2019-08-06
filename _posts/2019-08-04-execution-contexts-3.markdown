@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  title:  "자바스크립트 실행콘텍스트와 동작원리 -3부- (콘텍스트 코드 실행 단계 - 코드 실행)"
+title: "자바스크립트 실행콘텍스트와 동작원리 -3부- (콘텍스트 코드 실행 단계 - 코드 실행)"
 date:   2019-08-04
 categories: javascript, execution contexts
 ---
